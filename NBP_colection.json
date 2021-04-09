@@ -1,0 +1,549 @@
+{
+	"info": {
+		"_postman_id": "6d18cfe2-b340-4c82-81dc-a287378bf2a9",
+		"name": "NBP collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Zapytania o ceny złota",
+			"item": [
+				{
+					"name": "Aktualnie obowiązująca cena złota",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.nbp.pl/api/cenyzlota",
+							"protocol": "http",
+							"host": [
+								"api",
+								"nbp",
+								"pl"
+							],
+							"path": [
+								"api",
+								"cenyzlota"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Seria ostatnich {topCount} notowań cen złota",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.nbp.pl/api/cenyzlota/last/:topCount",
+							"protocol": "http",
+							"host": [
+								"api",
+								"nbp",
+								"pl"
+							],
+							"path": [
+								"api",
+								"cenyzlota",
+								"last",
+								":topCount"
+							],
+							"variable": [
+								{
+									"key": "topCount",
+									"value": "20",
+									"description": "liczba określająca maksymalną liczność zwracanej serii danych"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cena złota opublikowana w dniu {date} (albo brak danych)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.nbp.pl/api/cenyzlota/:date",
+							"protocol": "http",
+							"host": [
+								"api",
+								"nbp",
+								"pl"
+							],
+							"path": [
+								"api",
+								"cenyzlota",
+								":date"
+							],
+							"variable": [
+								{
+									"key": "date",
+									"value": "2021-04-09",
+									"description": "data w formacie RRRR-MM-DD (standard ISO 8601)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cena złota opublikowana w dniu dzisiejszym (albo brak danych)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.nbp.pl/api/cenyzlota/today",
+							"protocol": "http",
+							"host": [
+								"api",
+								"nbp",
+								"pl"
+							],
+							"path": [
+								"api",
+								"cenyzlota",
+								"today"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Seria cen złota opublikowanych w zakresie dat od {startDate} do {endDate} (albo brak danych)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.nbp.pl/api/cenyzlota/:startDate/:endDate",
+							"protocol": "http",
+							"host": [
+								"api",
+								"nbp",
+								"pl"
+							],
+							"path": [
+								"api",
+								"cenyzlota",
+								":startDate",
+								":endDate"
+							],
+							"variable": [
+								{
+									"key": "startDate",
+									"value": "2021-04-01",
+									"description": "data w formacie RRRR-MM-DD (standard ISO 8601)"
+								},
+								{
+									"key": "endDate",
+									"value": "2021-04-09",
+									"description": "data w formacie RRRR-MM-DD (standard ISO 8601)"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Zapytania o kompletne tabele",
+			"item": [
+				{
+					"name": "Aktualnie obowiązująca tabela kursów typu {table}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.nbp.pl/api/exchangerates/tables/:table/",
+							"protocol": "http",
+							"host": [
+								"api",
+								"nbp",
+								"pl"
+							],
+							"path": [
+								"api",
+								"exchangerates",
+								"tables",
+								":table",
+								""
+							],
+							"variable": [
+								{
+									"key": "table",
+									"value": "A",
+									"description": "A, B lub C"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Seria ostatnich {topCount} tabel kursów typu {table}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.nbp.pl/api/exchangerates/tables/:table/last/:topCount/",
+							"protocol": "http",
+							"host": [
+								"api",
+								"nbp",
+								"pl"
+							],
+							"path": [
+								"api",
+								"exchangerates",
+								"tables",
+								":table",
+								"last",
+								":topCount",
+								""
+							],
+							"variable": [
+								{
+									"key": "table",
+									"value": "A",
+									"description": "A, B lub C"
+								},
+								{
+									"key": "topCount",
+									"value": "67",
+									"description": "liczba określająca maksymalną liczność zwracanej serii danych max 67"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tabela kursów typu {table} opublikowana w dniu dzisiejszym (albo brak danych)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.nbp.pl/api/exchangerates/tables/:table/today/",
+							"protocol": "http",
+							"host": [
+								"api",
+								"nbp",
+								"pl"
+							],
+							"path": [
+								"api",
+								"exchangerates",
+								"tables",
+								":table",
+								"today",
+								""
+							],
+							"variable": [
+								{
+									"key": "table",
+									"value": "A",
+									"description": "typ tabeli (A, B, lub C)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tabela kursów typu {table} opublikowana w dniu {date} (albo brak danych)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.nbp.pl/api/exchangerates/tables/:table/:date/",
+							"protocol": "http",
+							"host": [
+								"api",
+								"nbp",
+								"pl"
+							],
+							"path": [
+								"api",
+								"exchangerates",
+								"tables",
+								":table",
+								":date",
+								""
+							],
+							"variable": [
+								{
+									"key": "table",
+									"value": "A",
+									"description": "typ tabeli (A, B, lub C)"
+								},
+								{
+									"key": "date",
+									"value": "2021-04-09",
+									"description": "data w formacie RRRR-MM-DD (standard ISO 8601)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Seria tabel kursów typu {table} opublikowanych w zakresie dat od {startDate} do {endDate} (albo brak danych)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.nbp.pl/api/exchangerates/tables/:table/:startDate/:endDate",
+							"protocol": "http",
+							"host": [
+								"api",
+								"nbp",
+								"pl"
+							],
+							"path": [
+								"api",
+								"exchangerates",
+								"tables",
+								":table",
+								":startDate",
+								":endDate"
+							],
+							"variable": [
+								{
+									"key": "table",
+									"value": "A",
+									"description": "typ tabeli (A, B, lub C)"
+								},
+								{
+									"key": "startDate",
+									"value": "2021-04-01",
+									"description": "{date}, {startDate}, {endDate} – data w formacie RRRR-MM-DD (standard ISO 8601)"
+								},
+								{
+									"key": "endDate",
+									"value": "2021-04-09"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Zapytania o pojedynczą walutę",
+			"item": [
+				{
+					"name": "Aktualnie obowiązujący kurs waluty {code} z tabeli kursów typu {table}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.nbp.pl/api/exchangerates/rates/:table/:code/",
+							"protocol": "http",
+							"host": [
+								"api",
+								"nbp",
+								"pl"
+							],
+							"path": [
+								"api",
+								"exchangerates",
+								"rates",
+								":table",
+								":code",
+								""
+							],
+							"variable": [
+								{
+									"key": "table",
+									"value": "A",
+									"description": "{table} – typ tabeli (A, B, lub C)"
+								},
+								{
+									"key": "code",
+									"value": "USD",
+									"description": "{code} – trzyliterowy kod waluty (standard ISO 4217)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Seria ostatnich {topCount} kursów waluty {code} z tabeli kursów typu {table}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.nbp.pl/api/exchangerates/rates/:table/:code/last/:topCount",
+							"protocol": "http",
+							"host": [
+								"api",
+								"nbp",
+								"pl"
+							],
+							"path": [
+								"api",
+								"exchangerates",
+								"rates",
+								":table",
+								":code",
+								"last",
+								":topCount"
+							],
+							"variable": [
+								{
+									"key": "table",
+									"value": "A",
+									"description": "{table} – typ tabeli (A, B, lub C)"
+								},
+								{
+									"key": "code",
+									"value": "USD",
+									"description": "{code} – trzyliterowy kod waluty (standard ISO 4217)"
+								},
+								{
+									"key": "topCount",
+									"value": "10",
+									"description": "{topCount} – liczba określająca maksymalną liczność zwracanej serii danych"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tabela kursów typu {table} opublikowana w dniu {date} (albo brak danych)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.nbp.pl/api/exchangerates/rates/:table/:code/:date/",
+							"protocol": "http",
+							"host": [
+								"api",
+								"nbp",
+								"pl"
+							],
+							"path": [
+								"api",
+								"exchangerates",
+								"rates",
+								":table",
+								":code",
+								":date",
+								""
+							],
+							"variable": [
+								{
+									"key": "table",
+									"value": "A",
+									"description": "{table} – typ tabeli (A, B, lub C)"
+								},
+								{
+									"key": "code",
+									"value": "USD",
+									"description": "trzyliterowy kod waluty (standard ISO 4217)"
+								},
+								{
+									"key": "date",
+									"value": "2021-04-09",
+									"description": "data w formacie RRRR-MM-DD (standard ISO 8601)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tabela kursów typu {table} opublikowana w dniu dzisiejszym (albo brak danych)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.nbp.pl/api/exchangerates/rates/:table/:code/today/",
+							"protocol": "http",
+							"host": [
+								"api",
+								"nbp",
+								"pl"
+							],
+							"path": [
+								"api",
+								"exchangerates",
+								"rates",
+								":table",
+								":code",
+								"today",
+								""
+							],
+							"variable": [
+								{
+									"key": "table",
+									"value": "A",
+									"description": "{table} – typ tabeli (A, B, lub C)"
+								},
+								{
+									"key": "code",
+									"value": "USD",
+									"description": "trzyliterowy kod waluty (standard ISO 4217)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Seria tabel kursów typu {table} opublikowanych w zakresie dat od {startDate} do {endDate} (albo brak danych)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://api.nbp.pl/api/exchangerates/rates/:table/:code/:startDate/:endDate",
+							"protocol": "http",
+							"host": [
+								"api",
+								"nbp",
+								"pl"
+							],
+							"path": [
+								"api",
+								"exchangerates",
+								"rates",
+								":table",
+								":code",
+								":startDate",
+								":endDate"
+							],
+							"variable": [
+								{
+									"key": "table",
+									"value": "A",
+									"description": "{table} – typ tabeli (A, B, lub C)"
+								},
+								{
+									"key": "code",
+									"value": "USD",
+									"description": "trzyliterowy kod waluty (standard ISO 4217)"
+								},
+								{
+									"key": "startDate",
+									"value": "2021-04-01",
+									"description": "data w formacie RRRR-MM-DD (standard ISO 8601)"
+								},
+								{
+									"key": "endDate",
+									"value": "2021-04-09",
+									"description": "data w formacie RRRR-MM-DD (standard ISO 8601)"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
